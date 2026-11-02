@@ -276,7 +276,7 @@ def _table(obj, data):  # noqa: C901
         f"{x:{xformat}}{col_sep}{y:{ff}}{table_row_sep}" for x, y in zip(xdata, ydata)
     ]
 
-    min_extern_length = 3
+    min_extern_length = 1
 
     if data["externalize tables"] and len(xdata) >= min_extern_length:
         filepath, rel_filepath = _files.new_filepath(data, "table", ".dat")
@@ -290,7 +290,7 @@ def _table(obj, data):  # noqa: C901
 
         opts_str = ("[" + ",".join(opts) + "] ") if len(opts) > 0 else ""
         posix_filepath = rel_filepath.as_posix()
-        content.append(f"table {{{opts_str}}}{{{posix_filepath}}};\n")
+        content.append(f"table {opts_str}{{{posix_filepath}}};\n")
     else:
         if len(opts) > 0:
             opts_str = ",".join(opts)
