@@ -29,10 +29,11 @@ keywords = ["latex", "tikz", "matplotlib", "graphics"]
 dynamic = ["version"]
 requires-python = ">=3.7"
 dependencies = [
-  "matplotlib >= 1.4.0, < 3.6",
-  "numpy",
+  "matplotlib >= 3.7",
+  "numpy >= 2.0.0",
   "Pillow",
-  "webcolors",
+  # See https://github.com/nschloe/tikzplotlib/issues/618#issuecomment-2174149494
+  "webcolors<24.6",
 ]
 
 [project.urls]
